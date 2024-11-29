@@ -380,7 +380,7 @@ sub _get_dbconfigs
       # clear the database
       my $db_name = $db_config->{name};
       if( defined $db_name ) {
-         if( $db_name eq 'psycopg2' ) {
+         if( ($db_name eq 'psycopg2') || ($db_name eq 'psycopg') ) {
             $db_config->{type} = 'pg';
          }
          elsif( $db_name eq 'sqlite3' ) {
