@@ -287,7 +287,7 @@ sub _get_dbconfig
       # backwards-compatibility hacks
       my $db_name = delete $db_config{name};
       if( defined $db_name ) {
-         if( $db_name eq 'psycopg2' ) {
+         if( $db_name eq 'postgres' ) {
             $db_config{type} = 'pg';
          }
          elsif( $db_name eq 'sqlite3' ) {
