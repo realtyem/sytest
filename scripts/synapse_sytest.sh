@@ -57,7 +57,8 @@ EOF
     # local auth)
     cat > "/work/server-0/databases.yaml" << EOF
 main:
-    name: $PGMODULE
+    name: postgres
+    driver: $PGMODULE
     data_stores:
         - main
     args:
@@ -67,7 +68,8 @@ main:
         host: localhost
         sslmode: disable
 state_db:
-    name: $PGMODULE
+    name: postgres
+    driver: $PGMODULE
     data_stores:
         - state
     args:
@@ -80,7 +82,8 @@ EOF
 
     cat > "/work/server-1/databases.yaml" << EOF
 main:
-    name: $PGMODULE
+    name: postgres
+    driver: $PGMODULE
     data_stores:
         - main
     args:
@@ -90,7 +93,8 @@ main:
         host: localhost
         sslmode: disable
 state_db:
-    name: $PGMODULE
+    name: postgres
+    driver: $PGMODULE
     data_stores:
         - state
     args:

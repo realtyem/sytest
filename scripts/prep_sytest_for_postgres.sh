@@ -31,7 +31,8 @@ PGMODULE="${PGMODULE:-psycopg2}"
 # We leave user, password, host blank to use the defaults (unix socket and
 # local auth)
 cat > "server-0/database.yaml" << EOF
-name: $PGMODULE
+name: postgres
+driver: $PGMODULE
 args:
     dbname: $POSTGRES_DB_1
     user: $PGUSER
@@ -41,7 +42,8 @@ args:
 EOF
 
 cat > "server-1/database.yaml" << EOF
-name: $PGMODULE
+name: postgres
+driver: $PGMODULE
 args:
     dbname: $POSTGRES_DB_2
     user: $PGUSER

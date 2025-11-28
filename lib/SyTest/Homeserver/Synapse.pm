@@ -120,6 +120,7 @@ sub start
 
    my %db_configs = $self->_get_dbconfigs(
       name => 'sqlite3',
+      driver => 'sqlite3',
       args => {
          database => ":memory:", #"$hs_dir/homeserver.db",
       },
@@ -128,7 +129,7 @@ sub start
    # Validate the chosen DB module name against those that Synapse supports.
    for my $db ( keys %db_configs ) {
       my %db_config = %{ $db_configs{$db} };
-      my $db_module_name = $db_config{name};
+      my $db_module_name = $db_config{driver};
 
       if( ($db_module_name ne "psycopg2") && ($db_module_name ne "psycopg") && ($db_module_name ne "sqlite3") ) {
          die "Unrecognized database type: '$db_module_name'";
